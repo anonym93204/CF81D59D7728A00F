@@ -40,10 +40,10 @@ The detailed format of the input files are introduced as follows. The full examp
     - K: number of generalized domains in each dimension (e.g., 10)
     - domain file: path to the domain file (e.g., "domains_3d_10.txt")
 - The dataset file (e.g., "XING.txt") containing a number of rows, each corresponding to a d-dimensional tuple. For each row:
-    - The first d values show the values of this tuple in each dimension minus 0.0001 (e.g., 0.1161 0.0719)
-    - The next d values show the values of this tuple in each dimension plus 0.0001 (e.g., 0.1159 0.0717)
+    - The first d values show the values of this tuple in each dimension plus 0.0001 (e.g., 0.1161 0.0719)
+    - The next d values show the values of this tuple in each dimension minus 0.0001 (e.g., 0.1159 0.0717)
     - The last value show the group membership of this tuple (e.g., 1 or 0)
-- The input (initial) utility function (i.e., "originalF.txt") containing (d - 1) numbers, which are the values of the initial utility function in the first (d - 1) dimensions (e.g., 0.383139 0.191711 for d = 3). Note that all values of a utility function in d dimensions sums up to 1, and thus the value of the last dimension can be easily computed.
+- The input (initial) utility function (i.e., "originalF.txt") containing (d - 1) numbers, which are the values of the initial utility function in the first (d - 1) dimensions (e.g., 0.383139 0.191711 for d = 3). Note that all values of a utility function in the d dimensions sum up to 1, and thus the value of the last dimension can be easily computed.
 - The domain file (e.g., "domains_2d_10.txt") containing the information of the universal domain set. Specifically, it consists of (d * K) rows, each K rows correspond to the K generalized domains for a dimension. For example, the row "0.567564 0.700976 1.000000" refers to a generalized domain with 3 value ranges, namely [0, 0.567564), [0.567564, 0.700976) and [0.700976, 1.000000].
 
 ## Output Format
