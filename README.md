@@ -18,7 +18,7 @@ This repository contains the code and the technical report for the submission "F
 4. Run our tests with `./run_all_tests.sh`.
 
     - This will run the two tests under folder test1/ and test2/, using dataset XING and COMPAS, respectively.
-    - For both tests, the exact algorithm FairTQ-Exact will first be executed, and then follows the approximation algorithm beta-FairTQ-Approx.
+    - For both tests, the exact algorithm FairTQ-Exact will first be executed, and then follows the approximation algorithm beta-FairTQ-Appro.
     - After running both tests with `./run_all_tests.sh`, the result files (to be introduced in detail later) will be generated under each folder.
     - To run each test individually, as shown in the scripts of run_all_tests.sh, follow the steps below:
         - First, copy all files in the corresponding test folder to UTK/bin/.
@@ -36,7 +36,7 @@ The detailed format of the input files are introduced as follows. The full examp
     - d: number of dimensions (e.g., 2)
     - |P|: number of groups (e.g., 2)
     - alpha: parameter for alpha-fair (e.g., 0.4)
-    - beta: parameter for beta-FairTQ-approx (e.g., 0.4)
+    - beta: parameter for beta-FairTQ-appro (e.g., 0.4)
     - K: number of generalized domains in each dimension (e.g., 10)
     - domain file: path to the domain file (e.g., "domains_3d_10.txt")
 - The dataset file (e.g., "XING.txt") containing a number of rows, each corresponding to a d-dimensional tuple. For each row:
