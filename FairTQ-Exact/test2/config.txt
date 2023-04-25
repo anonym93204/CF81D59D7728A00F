@@ -6,5 +6,4 @@ compas.txt
 0.200000
 0.200000
 10
-10
 domains_3d_10.txt

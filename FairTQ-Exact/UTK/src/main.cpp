@@ -242,25 +242,25 @@ int main(const int argc, const char** argv)
 	}
 
 	fpConfig >> datafile;
-	cout << "datafile: " <<datafile << endl;
+	cout << "Dataset file: " << datafile << endl;
 	fpConfig >> TotalSize;
-	cout << "total size: " << TotalSize << endl;
+	cout << "Size of the dataset (n): " << TotalSize << endl;
 	fpConfig >> k;
 	cout << "k: " << k << endl;
 	fpConfig >> dim;
-	cout << "dim: " << dim << endl;
+	cout << "Number of dimensions (d): " << dim << endl;
 	fpConfig >> numOfKind;
-	cout << "num groups: " << numOfKind << endl;
+	cout << "Number of groups (|P|): " << numOfKind << endl;
 	fpConfig >> alpha;
 	cout << "alpha: " << alpha << endl;
 	fpConfig >> beta;
 	cout << "beta: " << beta << endl;
-	fpConfig >> theta;
+	// fpConfig >> theta;
 	// cout << "theta: " << theta << endl;
 	fpConfig >> num_levels;
-	cout << "num_levels (K): " << num_levels << endl;
+	cout << "Number of generalized domains in each dimension (K): " << num_levels << endl;
 	fpConfig >> domainfile;
-	cout << "domain file: " << domainfile << endl;
+	cout << "Domain file: " << domainfile << endl;
 
 	int resultSize = 0;
 
@@ -370,6 +370,7 @@ int main(const int argc, const char** argv)
     // For example, if K = 1, d = 3, then each partitionPoint[di] has (K + 1) = 2 lists: <0.5, 1> and <1>, representing [0, 0.5)&[0.5, 1] and [0, 1]
     // Note that the number 0 in generalization[0][di] representing the first list (i.e., [0, 0.5)&[0.5, 1])
     vector<vector<vector<float>>> partitionPoint;
+    num_levels -= 1; // to fix a issue that we actually have (K + 1) generalized domains in each dimension
 	load_domains(dim, num_levels, domainfile, generalization, partitionPoint);
 
     // cout << "domains: " << generalization.size() << endl;
@@ -705,9 +706,6 @@ int main(const int argc, const char** argv)
 				}
 			}
 
-			cout << "Best Modification Penalty: " << minDistance / U_RANGE <<endl;
-			cout << "Best alpha-Fairness: " << maxSP << endl;
-			// cout<<"minLoss: "<< minLoss <<endl;
 			cout << "Best Utility Function:";
 			for (int di = 0; di < dim; di++) {
 				cout << " " << bestF[di]/U_RANGE;
@@ -718,6 +716,9 @@ int main(const int argc, const char** argv)
 				cout << " " << bestTopK[ki];
 			}
 			cout << endl;
+			cout << "Best alpha-Fairness: " << maxSP << endl;
+			cout << "Best Modification Penalty: " << minDistance / U_RANGE <<endl;
+			// cout<<"minLoss: "<< minLoss <<endl;
 
 			//Spacecost += treeSpacecost;
 			cout << "============================================" << endl;
@@ -740,9 +741,6 @@ int main(const int argc, const char** argv)
 
 			fprintf(stream_time, "%f\n", (ad - at)*1.0 / CLOCKS_PER_SEC);
 			
-			fprintf(stream_stat, "%f\n", minDistance/U_RANGE);
-			fprintf(stream_stat, "%f\n", maxSP);
-			// fprintf(stream_stat, "%f\n", minLoss);
 			for (int di = 0; di < dim; di++) {
 				fprintf(stream_stat, "%f ", bestF[di]/U_RANGE);
 			}
@@ -751,6 +749,9 @@ int main(const int argc, const char** argv)
 				fprintf(stream_stat, "%d ", bestTopK[ki]);
 			}
 			fprintf(stream_stat, "\n");
+			fprintf(stream_stat, "%f\n", maxSP);
+			fprintf(stream_stat, "%f\n", minDistance/U_RANGE);
+			// fprintf(stream_stat, "%f\n", minLoss);
 
 			// // try to restore the top-k set under bestF
 			// // however, I found that the top-k set come from rskyband, which is the intersection of skyband and klayers (in onionlayer)

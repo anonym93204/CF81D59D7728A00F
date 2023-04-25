@@ -11,6 +11,7 @@ main: ${OBJS} ${FOLDER}
 
 clean: 
 	rm -f *.o
+	rm -rf ${FOLDER}
 
 .cpp.o:
 	${CC} ${CFLAGS} ${INCLUDES} -c -g $<
