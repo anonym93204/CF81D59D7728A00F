@@ -57,7 +57,7 @@ Best alpha-Fairness: 0.004082
 Best Modification Penalty: 0.250512
 ```
 
-Moreover, the output is also saved in the output files. Specifically, the time costs of the exact algorithm and the approximation algorithm are saved in "time_ftq_exact.txt" and "time_ftq_appr1.txt", respectively. The other results of the exact algorithm and the approximation algorithm are saved in statistic files "stat_ftq_exact.txt" and "stat_ftq_appr1.txt", respectively. In each statistic file, the four rows correspond to the the best utility function w*, the top-k set w.r.t. w*, the alpha-fairness of this top-k set and the modification penalty of w* to the initial utility function, respectively. An example of the statistic file is shown as follows.
+Moreover, the output is also saved in the output files. Specifically, the time costs of the exact algorithm and the approximation algorithm are saved in "time_ftq_exact.txt" and "time_ftq_appr1.txt", respectively. The other results of the exact algorithm and the approximation algorithm are saved in statistic files "stat_ftq_exact.txt" and "stat_ftq_appr1.txt", respectively. In each statistic file, the four rows correspond to the best utility function w*, the top-k set w.r.t. w*, the alpha-fairness of this top-k set and the modification penalty of w* to the initial utility function, respectively. An example of the statistic file is shown as follows.
 ```
 0.657716 0.342284 
 108 1612 1652 585 1617 1816 1622 1831 665 2061 
