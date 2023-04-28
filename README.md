@@ -1,6 +1,6 @@
 # FairTQ-Exact: Fair Top-k Query on Alpha-Fair
 
-This repository contains the code and the technical report for the submission "FairTQ-Exact: Fair Top-k Query on Alpha-Fair".
+This repository contains the code and the [technical report](FairTQ-Exact-TechnicalReport.pdf) for the submission "FairTQ-Exact: Fair Top-k Query on Alpha-Fair".
 
 ## Requirements
 - Linux Environment with GCC
